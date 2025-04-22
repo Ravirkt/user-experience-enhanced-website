@@ -1,0 +1,372 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* overflow-x: hidden; */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-top: 2em;
+    padding-bottom: 1em;
+
+    border-bottom: 2px solid var(--fonts-color-1);
+}
+
+.dda-logo {
+    width: 5em;
+}
+
+.hamburger-menu-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+
+    border: 1.5px solid var(--fonts-color-1);
+    padding: 0.9em;
+}
+
+.menu-stripe-1,
+.menu-stripe-2,
+.menu-stripe-3 {
+    background-color: var(--fonts-color-1);
+    height: 0.3em;
+    width: 2.2em;
+}
+
+.navbar-container {
+    display: none;
+}
+
+/* contentblok 2 */
+
+header {
+    padding-top: 3em;
+    padding-bottom: 3em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1.5em;
+}
+
+.hero-section-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3em;
+}
+
+.hero-section-title {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    max-width: 100vw;
+    text-align: center;
+
+    box-sizing: border-box;
+}
+
+.details-section-image-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    gap: 1em;
+}
+
+.image-subtitle {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5em;
+
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+.details-section-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 1em;
+
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-bottom: 2em;
+}
+
+.details-section-intro {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.details-section-content {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+/* table */
+
+.agenda {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 1.5em;
+
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-bottom: 2em;
+}
+
+.agenda-title {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.agenda-time-table {
+    grid-column: 1;
+    grid-row: 2;
+
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.agenda-time-table td {
+    border-bottom: 1px solid black;
+    padding: 10px;
+    text-align: left;
+}
+
+.agenda-time-table tr:last-child td {
+    border-bottom: none;
+}
+
+.agenda-time-table td:nth-child(2) {
+    text-align: right;
+}
+
+/* form */
+
+.sign-up-for-event-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-bottom: 3em;
+    gap: 1.5em;
+}
+
+.sign-up-form-title {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.sign-up-form {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.sign-up-button-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 0.5em;
+
+
+}
+
+.sign-up-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    background-color: var(--background-color);
+    border: 1px solid var(--fonts-color-1);
+    width: 12em;
+    height: 4em;
+
+    cursor: pointer;
+
+    &:hover {
+        color: var(--button);
+    }
+}
+
+/* succes beriht */
+#succes {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: rgb(0, 0, 0);
+    background-color: lightgreen;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 9999;
+    display: none;
+}
+
+
+/* all companies */
+.participating-companies-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 1.5em;
+
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-bottom: 2em;
+}
+
+.participating-companies-title {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.participating-companies-table {
+    grid-column: 1;
+    grid-row: 2;
+
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.participating-companies-table td {
+    border-bottom: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.participating-companies-table tr:last-child td {
+    border-bottom: none;
+}
+
+.participating-companies-table td:nth-child(2) {
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+/* event location image */
+
+.event-location-image-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    gap: 1em;
+}
+
+/* location information */
+
+.event-location-information-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-top: 3em;
+    padding-bottom: 3em;
+
+    gap: 1em;
+}
+
+.event-location-information {
+    border: 1px solid black;
+    padding: 0.2em;
+}
+
+.event-adress-information {
+    text-align: center;
+}
+
+.maps-links-button-route-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.google-maps-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    background-color: var(--background-color);
+    border: 1px solid var(--fonts-color-1);
+    width: 16em;
+    height: 4em;
+
+    cursor: pointer;
+
+    &:hover {
+        color: var(--button);
+    }
+}
+
+/* loading state */
+.loader {
+    background-color: rgb(255, 255, 255);
+    height: 2em;
+    width: 2em;
+    border-radius: 100%;
+    border: 3px solid rgb(202, 202, 202);
+    border-top: 3px solid rgb(3, 157, 0);
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loader {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+
+.sign-up-button-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.submitting {
+    opacity: 0.3;
+    transition: opacity 0.3s ease-in-out;
+  }
+  

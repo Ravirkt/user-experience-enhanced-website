@@ -1,0 +1,162 @@
+body {
+  --background-color: #ffff;
+  --fonts-color-1: #222226;
+  --grey: #666666;
+  --button: #364bf7;
+
+  @font-face {
+    font-family: "Archivo", sans-serif;
+  }
+
+  h1 {
+    font-family: "Archivo", sans-serif;
+    font-size: clamp(48px, 4vw, 96px);
+    line-height: clamp(100%, 4vw, 96px);
+    letter-spacing: -0.04em;
+    font-weight: 600;
+  }
+
+  h2 {
+    font-family: "Archivo", sans-serif;
+    font-size: clamp(36px, 3vw, 64px);
+    line-height: clamp(40px, 4vw, 64px);
+    letter-spacing: -0.04em;
+    font-weight: 600;
+  }
+
+  h3 {
+    font-family: "Archivo", sans-serif;
+    font-size: clamp(28px, 2.5vw, 48px);
+    line-height: clamp(28px, 3vw, 44px);
+    letter-spacing: -0.04em;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    @media (min-width: 800px) {
+      h3 {
+        font-weight: 600;
+      }
+    }
+  }
+
+  h4 {
+    font-family: "Archivo", sans-serif;
+    font-size: clamp(24px, 2vw, 32px);
+    line-height: clamp(32px, 3vw, 40px);
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+
+  h5 {
+    font-family: "Archivo", sans-serif;
+    font-size: clamp(18px, 1.8vw, 24px);
+    line-height: clamp(28px, 2.5vw, 40px);
+    letter-spacing: 0;
+    font-weight: 600;
+  }
+
+  h6 {
+    font-family: "Archivo", sans-serif;
+    font-size: clamp(18px, 1.5vw, 24px);
+    line-height: clamp(28px, 2vw, 40px);
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+
+  p,
+  .static-location {
+    font-family: "Archivo", sans-serif;
+    font-size: clamp(16px, 1.5vw, 18px);
+    line-height: clamp(24px, 2vw, 32px);
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+
+  .image-caption,
+  small,
+  .image-subtitle,
+  .caption {
+    font-family: "Martian Mono", sans-serif;
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: clamp(20px, 1.8vw, 24px);
+    letter-spacing: -0.04em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  td {
+    font-family: "Martian Mono", sans-serif;
+    font-size: clamp(10px, 1.2vw, 12px);
+    line-height: clamp(20px, 1.8vw, 24px);
+    text-transform: uppercase;
+  }
+
+  time, .event-time-stamp {
+    font-family: "Martian Mono", sans-serif;
+    font-size: clamp(16px, 1.5vw, 18px);
+    line-height: clamp(24px, 2vw, 32px);
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--fonts-color-1);
+    font-family: "Archivo", sans-serif;
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: clamp(20px, 1.8vw, 24px);
+    letter-spacing: -0.04em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+}
+
+/* details button onder image cards */
+.button-text {
+  text-decoration: none;
+  color: var(--button);
+  font-family: "Martian Mono", sans-serif;
+  font-size: clamp(14px, 1.2vw, 16px);
+  line-height: clamp(20px, 1.8vw, 24px);
+  letter-spacing: -0.04em;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  &hover {
+    color: var(--fonts-color-1);
+  }
+}
+
+/* select button */
+select {
+  font-family: "Archivo", sans-serif;
+  font-size: clamp(12px, 1vw, 14px);
+  line-height: clamp(20px, 1.5vw, 24px);
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.input-field {
+  all: unset;
+  border: none;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  border-bottom: 1px solid black;
+  padding-bottom: 1em;
+
+  font-family: "Archivo", sans-serif;
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: clamp(24px, 2vw, 32px);
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+li {
+  text-decoration: none;
+  list-style: none;
+}

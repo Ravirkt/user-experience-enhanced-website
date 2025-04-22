@@ -1,0 +1,247 @@
+{% render 'partials/head.liquid' %}
+{% render 'partials/nav.liquid' %}
+
+
+  <!-- ============ contenblok-1 ============ -->
+
+
+  {% if eventDetails %}
+  <header>
+    <a class="hero-section-button" href="https://server-side-rendering-server-side-website-5dcc.onrender.com/events">
+      <img src="/assets/Icon.svg" alt="">
+      TERUG NAAR HOME
+    </a>
+    <h1 class="hero-section-title">{{ eventDetails.title }}</h1>
+
+    <figure class="details-section-image-container">
+      {% if eventDetails.photo %}
+        <img class="details-section-image" src="https://fdnd-agency.directus.app/assets/{{ eventDetails.photo }}" alt="{{ eventDetails.title }}">
+        {% else %}
+        <img class="details-section-image" src="/assets/Image.png" alt="stock afbeelding">
+      {% endif %}
+
+        <figcaption class="image-subtitle">
+          <span class="event-title">{{ eventDetails.title }} - </span> 
+          <span class="event-date">{% if eventDetails.date %}
+            {{ eventDetails.date | upcase }}
+          {% else %}
+           NADER BEPAALD
+        {% endif %},</span>
+          <div class="event-location-container">
+            <span class="event-location">{% if eventDetails.location %}
+              {{ eventDetails.location | upcase }}
+            {% else %}
+              / NADER BEPAALD
+            {% endif %}</span>
+          </div>
+        </figcaption>
+    </figure>
+  </header>
+
+{% endif %}
+
+  <!-- ============ contenblok-2 ============ -->
+
+
+  <main>
+
+    <section class="details-section-container">
+      <h2 hidden>container</h2>
+    {% if eventDetails.intro %}
+      <p class="details-section-intro">{{ eventDetails.intro }}</p>
+    {% else %}
+      <p class="details-section-intro">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam luctus odio ut sapien convallis, a auctor ligula 
+        gravida. Phasellus interdum, felis vel cursus tincidunt, lorem libero laoreet metus, at elementum erat lorem 
+        ac purus. Quisque viverra quam nec dolor tincidunt, et tincidunt libero viverra. Integer bibendum.
+      </p>
+    {% endif %}
+      
+    {% if eventDetails.content %}
+        <p class="details-section-content">{{ eventDetails.content }}</p>
+      {% else %}
+
+        <p class="details-section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam luctus odio ut sapien convallis, a auctor ligula 
+          gravida. Phasellus interdum, felis vel cursus tincidunt, lorem libero laoreet metus, at elementum erat lorem 
+          ac purus. Quisque viverra quam nec dolor tincidunt, et tincidunt libero viverra. Integer bibendum.
+        </p>
+    {% endif %}
+
+    </section>
+
+  <!-- ============ contenblok-3 ============ -->
+
+    <section class="agenda">
+        <h2 class="agenda-title">AGENDA</h2>
+        <table class="agenda-time-table">
+            <tr><td>Intro and possibly more text</td><td>09:00 - 10:00</td></tr>
+            <tr><td>Spreker 1</td><td>00:00 - 00:00</td></tr>
+            <tr><td>Spreker 2</td><td>00:00 - 00:00</td></tr>
+            <tr><td>Q&A</td><td>00:00 - 00:00</td></tr>
+        </table>
+    </section>
+
+  <!-- ============ contenblok-4 ============ -->
+  {% if eventDetails.id %}
+    <section class="sign-up-for-event-container">
+      <h2 class="sign-up-form-title">INSCHRIJVEN</h2>
+      <form class="sign-up-form" action="/events/detail-event/{{ eventDetails.id }}" method="post" data-enhanced= {{ eventDetails.id }}>
+          <input type="text" name="title" class="input-field" placeholder="Functie*" required>
+          <input type="text" name="name" class="input-field" placeholder="Voornaam*" required>
+          <input type="text" name="infix" class="input-field" placeholder="Tussenvoegsel">
+          <input type="text" name="lastname" class="input-field" placeholder="Achternaam*" required>
+          <input type="email" name="email" class="input-field" placeholder="E-mailadres*" required>
+          <input type="tel" name="phone" class="input-field" placeholder="Mobiel*" required>
+          <input type="text" name="company" class="input-field" placeholder="Bedrijfsnaam*" required>
+          <input type="hidden" name="event" class="input-field" value="{{ eventDetails.id }}">
+          <input type="url" name="company_website" class="input-field" placeholder="Bedrijfswebsite*" required>
+          <input type="text" name="reason" class="input-field" placeholder="Ik wil graag lid worden omdat:*" required>
+          <input type="number" name="fte" class="input-field" placeholder="FTE*" required min="0" step="0.1">
+          <div class="sign-up-button-container">
+              <button type="submit" class="sign-up-button">SCHRIJF ME IN</button>
+              <span class="loader"></span>
+
+          </div>
+      </form>
+    </section>
+  {% endif %}
+
+  <p id="succes">Uw inschrijving is verzonden!</p>
+  
+
+<script type="module">
+  // We maken hieronder aannames over wat de browser ondersteunt
+  // Dus laten we deze eerst testen met Feature Detection
+  // https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Testing/Feature_detection
+  if ('fetch' in window && 'DOMParser' in window) {
+  
+    // Als er ergens op de pagina een formulier wordt gesubmit..
+    // (We maken hier gebruik van Event Delegation)
+    document.addEventListener('submit', async function(event) {
+  
+      // Hou in een variabele bij welk formulier dat was
+      const form = event.target;
+  
+      // Als dit formulier geen data-enhanced attribuut heeft, doe dan niks
+      // Dit doen we, zodat we sommige formulieren op de pagina kunnen 'enhancen'
+      // Data attributen mag je zelf verzinnen; dit is dus niet iets speciaals
+      // https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Solve_HTML_problems/Use_data_attributes
+      if (!form.hasAttribute('data-enhanced')) {
+        return;
+      }
+  
+      // Voorkom de standaard submit van de browser
+      // Let op: hiermee overschrijven we de default Loading state van de browser...
+      event.preventDefault();
+
+      form.classList.add("submitting");
+  
+      const loader = document.querySelector(".loader");
+      loader.classList.add("visible");
+      
+  
+      // Doe een fetch naar de server, net als hoe de browser dit normaal zou doen
+      // Gebruik daarvoor het action en method attribuut van het originele formulier
+      // Inclusief alle formulierelementen
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: new URLSearchParams(new FormData(form))
+      });
+  
+      // De server redirect op de normale manier, en geeft HTML terug
+      // (De server weet niet eens dat deze fetch via client-side JavaScript gebeurde)
+      const responseText = await response.text();
+  
+      // Normaal zou de browser die HTML parsen en weergeven, maar daar moeten we nu zelf iets mee
+      // Parse de nieuwe HTML en maak hiervan een nieuw Document Object Model in het geheugen
+      const parser = new DOMParser();
+      const responseDOM = parser.parseFromString(responseText, 'text/html');
+  
+      // Zoek in die nieuwe DOM onze nieuwe state op, die we via Liquid hebben klaargemaakt
+      // We gebruiken hiervoor het data-enhanced attribuut, zodat we weten waar we naar moeten zoeken
+      // (Hierdoor kunnen we ook meerdere formulieren op dezelfde pagina gebruiken)
+      const newState = responseDOM.querySelector('[data-enhanced="' + form.getAttribute('data-enhanced') + '"]');
+  
+      // Overschrijf ons formulier met de nieuwe HTML
+      // Hier wil je waarschijnlijk de Loading state vervangen door een Success state
+      form.outerHTML = newState.outerHTML;
+  
+      document.querySelector(".loader");
+      loader.classList.remove("visible");
+      
+
+      const successMessage = document.getElementById('succes');
+      if (successMessage) {
+        successMessage.style.display = 'block';
+
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 3000);
+      }
+    });
+  }
+</script>
+
+  
+    <!-- ============ contenblok-5 ============ -->
+    <section class="participating-companies-container">
+      <h2 class="participating-companies-title">DEELNEMENDE BEDRIJVEN</h2>
+      <table class="participating-companies-table">
+        {% assign row_amount = 0 %}
+        {% assign column_amount = 0 %}
+        {% if companies.size == 0 %}
+          <tr>
+            <td>Nog geen bedrijven</td>
+          </tr>
+        {% else %}
+          {% for company in companies %}
+            {% if column_amount == 0 %}
+              <tr>
+            {% endif %}
+            <td>{{ company.company }}</td>
+            {% assign column_amount = column_amount | plus: 1 %}
+            {% if column_amount == 3 %}
+              {% assign column_amount = 0 %}
+              </tr>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </table>
+  </section>
+
+
+
+        <!-- ============ contenblok-6 ============ -->
+
+  <figure class="event-location-image-container">
+    <img class="event-location-image" src="/assets/Image.png" alt="Sample Event Title">
+  </figure>
+    
+    <!-- ============ contenblok-7 ============ -->
+
+
+  <section class="event-location-information-container">
+        <small class="event-location-information">Locatie</small>
+        <h3 class="event-adress-information">Stadskasteel Oudaen, <span class="event-location-container">
+          <span class="event-location">{% if eventDetails.location %}
+             {{ eventDetails.location | upcase }}
+          {% else %}
+            NADER BEPAALD
+          {% endif %}</span>
+        </span></h3>
+        <div class="maps-links-button-route-container">
+            <button type="submit" class="google-maps-button">ROUTE OP GOOGLE MAPS
+                <svg class="signup-arrow-icon" width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.5 3L13.5001 8.0001L8.5 13.0002" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023" />
+                <path d="M3.5 8L13.5 8" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023" stroke-linejoin="round" />
+            </svg>
+
+            </button>
+          </div>    
+        </section>
+
+
+  </main>
+
+
+  {% render 'partials/foot.liquid' %}
