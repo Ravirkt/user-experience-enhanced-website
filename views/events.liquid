@@ -5,7 +5,7 @@
 
 <header class="header">
   <a class="hero-section-button" href="">
-    <img src="/assets/Icon.svg" height="17" width="16" alt="">
+    <img src="/assets/Icon.svg" height="16" width="17" alt="">
     TERUG NAAR HOME
   </a>
   <h1 class="hero-section-title">EVENTS</h1>
@@ -20,85 +20,86 @@
 <main>
   <article class="event-cards-parent-container">
 
-    {% for headerEvent in headerEvents %}
-      <section class="card-child-container">
-        <figure class="card-image-container">
-          {% if headerEvent.photo %}
-            <img
-              class="card-image"
-              src="https://fdnd-agency.directus.app/assets/{{ headerEvent.photo }}"
-              alt="{{ headerEvent.title }}">
-          {% else %}
-            <img
-              class="card-image"
-              src="/assets/Image.png"
-              alt="">
-          {% endif %}
+  {% for headerEvent in headerEvents %}
+    <section class="card-child-container">
+      <figure class="card-image-container">
+        {% if headerEvent.photo and headerEvent.photo.id %}
+          <img
+            class="card-image"
+            src="https://fdnd-agency.directus.app/assets/{{ headerEvent.photo.id }}"
+            alt="{{ headerEvent.title }}"
+            width="{{ headerEvent.photo.width }}"
+            height="{{ headerEvent.photo.height }}">
+        {% else %}
+          <img
+            class="card-image"
+            src="/assets/Image.png"
+            alt="Afbeelding niet beschikbaar">
+        {% endif %}
 
-          <figcaption class="image-caption">
-            {% if headerEvent.title %}
-              {{ headerEvent.title | split: " " | slice: 0, 2 | join: " " | upcase }}
-            {% else %}
-              NADER BEPAALD
-            {% endif %}
-          </figcaption>
-        </figure>
-
-        {% assign event_date = event.date | default: '2024-01-01' %}
-        <time class="event-time-stamp" datetime="{{ event_date | date: '%Y-%m-%d' }}">
-            <span>
-                {% if headerEvent.date %}
-                    {{ headerEvent.date | upcase }}
-                {% else %}
-                    NADER BEPAALD
-                {% endif %}
-            </span>
-        
-            <span>
-                {% if headerEvent.location %}
-                    / {{ headerEvent.location | upcase }}
-                {% else %}
-                    / NADER BEPAALD
-                {% endif %}
-            </span>
-        </time>
-        
-
-
-        <h3 class="event-card-title">
+        <figcaption class="image-caption">
           {% if headerEvent.title %}
-            {{ headerEvent.title | upcase }}
+            {{ headerEvent.title | split: " " | slice: 0, 2 | join: " " | upcase }}
           {% else %}
             NADER BEPAALD
           {% endif %}
-        </h3>
+        </figcaption>
+      </figure>
 
-        <a class="card-button button-text" href="/events/detail-event/{{ headerEvent.id }}">Details
-          <svg
-            class="arrow-logo"
-            width="17"
-            height="16"
-            viewBox="0 0 17 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M8.5 13L3.4999 7.9999L8.5 2.99979"
-              stroke="#364bf7"
-              stroke-width="1.5"
-              stroke-miterlimit="4.62023"></path>
-            <path
-              d="M13.5 8L3.5 8"
-              stroke="#222226"
-              stroke-width="1.5"
-              stroke-miterlimit="4.62023"
-              stroke-linejoin="round"></path>
-          </svg>
+      {% assign event_date = headerEvent.date | default: '2024-01-01' %}
+      <time class="event-time-stamp" datetime="{{ event_date | date: '%Y-%m-%d' }}">
+        <span>
+          {% if headerEvent.date %}
+            {{ headerEvent.date | upcase }}
+          {% else %}
+            NADER BEPAALD
+          {% endif %}
+        </span>
 
-        </a>
-      </section>
-    {% endfor %}
+        <span>
+          {% if headerEvent.location %}
+            / {{ headerEvent.location | upcase }}
+          {% else %}
+            / NADER BEPAALD
+          {% endif %}
+        </span>
+      </time>
 
-  </article>
+      <h3 class="event-card-title">
+        {% if headerEvent.title %}
+          {{ headerEvent.title | upcase }}
+        {% else %}
+          NADER BEPAALD
+        {% endif %}
+      </h3>
+
+      <a class="card-button button-text" href="/events/detail-event/{{ headerEvent.id }}">
+        Details
+        <svg
+          class="arrow-logo"
+          width="17"
+          height="16"
+          viewBox="0 0 17 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M8.5 13L3.4999 7.9999L8.5 2.99979"
+            stroke="#364bf7"
+            stroke-width="1.5"
+            stroke-miterlimit="4.62023"></path>
+          <path
+            d="M13.5 8L3.5 8"
+            stroke="#222226"
+            stroke-width="1.5"
+            stroke-miterlimit="4.62023"
+            stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </section>
+  {% endfor %}
+
+</article>
+
 
 
   <!-- ============ contenblok-2 ============ -->
