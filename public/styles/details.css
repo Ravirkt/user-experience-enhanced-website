@@ -86,6 +86,11 @@ header {
     gap: 1em;
 }
 
+.details-section-image {
+    height: auto;
+    max-width: 100%;
+}
+
 .image-subtitle {
     display: flex;
     flex-wrap: wrap;
@@ -278,6 +283,11 @@ header {
     width: 100%;
     height: auto;
     gap: 1em;
+}
+
+.event-location-image {
+    height: auto;
+    width: 100%;
 }
 
 /* location information */
