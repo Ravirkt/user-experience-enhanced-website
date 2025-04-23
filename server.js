@@ -26,7 +26,7 @@ app.set('views', './views')
 
 app.get('/events', async function (request, response) {
 
-    const apiResponseHeaderEvents = await fetch('https://fdnd-agency.directus.app/items/dda_events?limit=3');
+    const apiResponseHeaderEvents = await fetch('https://fdnd-agency.directus.app/items/dda_events?limit=3&fields=*,photo.id,photo.width,photo.height');
     const apiResponseHeaderEventsJSON = await apiResponseHeaderEvents.json()
   
     // console.log(apiResponseJSON.data)
@@ -66,7 +66,7 @@ app.get('/events', async function (request, response) {
 app.get('/events/detail-event/:id', async function (request, response) {
 
     // ophalen van data specifieke event door id
-    const apiResponseDetails = await fetch('https://fdnd-agency.directus.app/items/dda_events/' + request.params.id);
+    const apiResponseDetails = await fetch('https://fdnd-agency.directus.app/items/dda_events/' + request.params.id + '?fields=*,photo.id,photo.width,photo.height');    
     const apiResponseDetailsJSON = await apiResponseDetails.json();
   
     if (!apiResponseDetailsJSON.data) {
