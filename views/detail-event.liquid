@@ -8,15 +8,20 @@
   {% if eventDetails %}
   <header>
     <a class="hero-section-button" href="https://server-side-rendering-server-side-website-5dcc.onrender.com/events">
-      <img src="/assets/Icon.svg" alt="">
+    <img src="/assets/Icon.svg" height="16" width="17" alt="">
       TERUG NAAR HOME
     </a>
     <h1 class="hero-section-title">{{ eventDetails.title }}</h1>
 
     <figure class="details-section-image-container">
-      {% if eventDetails.photo %}
-        <img class="details-section-image" src="https://fdnd-agency.directus.app/assets/{{ eventDetails.photo }}" alt="{{ eventDetails.title }}">
-        {% else %}
+      {% if eventDetails.photo.id %}
+        <img 
+          class="details-section-image" 
+          src="https://fdnd-agency.directus.app/assets/{{ eventDetails.photo.id }}" 
+          alt="{{ eventDetails.title }}"
+          width="{{ eventDetails.photo.width }}"
+          height="{{ eventDetails.photo.height }}">
+      {% else %}
         <img class="details-section-image" src="/assets/Image.png" alt="stock afbeelding">
       {% endif %}
 
@@ -214,7 +219,7 @@
         <!-- ============ contenblok-6 ============ -->
 
   <figure class="event-location-image-container">
-    <img class="event-location-image" src="/assets/Image.png" alt="Sample Event Title">
+    <img class="event-location-image" src="/assets/Image.png" alt="Sample Event Title" height="300" width="360">
   </figure>
     
     <!-- ============ contenblok-7 ============ -->
