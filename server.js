@@ -72,6 +72,7 @@ app.get('/events/detail-event/:id', async function (request, response) {
     if (!apiResponseDetailsJSON.data) {
       return response.status(404).render('404.liquid'); 
     }
+  const success = request.query.success === 'true'; 
   
     // Voor ophalen alle companies die zijn ingeschreven
     const apiResponseCompany = await fetch('https://fdnd-agency.directus.app/items/dda_signups?fields=company&filter[event][_eq]=' + request.params.id);
@@ -86,6 +87,7 @@ app.get('/events/detail-event/:id', async function (request, response) {
     });
   
   });
+  response.render('detail-event.liquid', { eventDetails: apiResponseDetailsJSON.data,  companies: apiResponseCompanyJSON.data, successState: success });
 
 
 
