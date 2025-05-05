@@ -88,24 +88,65 @@
   {% if eventDetails.id %}
     <section class="sign-up-for-event-container">
       <h2 class="sign-up-form-title">INSCHRIJVEN</h2>
-      <form class="sign-up-form" action="/events/detail-event/{{ eventDetails.id }}" method="post" data-enhanced= {{ eventDetails.id }}>
-          <input type="text" name="title" class="input-field" placeholder="Functie*" required>
-          <input type="text" name="name" class="input-field" placeholder="Voornaam*" required>
-          <input type="text" name="infix" class="input-field" placeholder="Tussenvoegsel">
-          <input type="text" name="lastname" class="input-field" placeholder="Achternaam*" required>
-          <input type="email" name="email" class="input-field" placeholder="E-mailadres*" required>
-          <input type="tel" name="phone" class="input-field" placeholder="Mobiel*" required>
-          <input type="text" name="company" class="input-field" placeholder="Bedrijfsnaam*" required>
-          <input type="hidden" name="event" class="input-field" value="{{ eventDetails.id }}">
-          <input type="url" name="company_website" class="input-field" placeholder="Bedrijfswebsite*" required>
-          <input type="text" name="reason" class="input-field" placeholder="Ik wil graag lid worden omdat:*" required>
-          <input type="number" name="fte" class="input-field" placeholder="FTE*" required min="0" step="0.1">
-          <div class="sign-up-button-container">
-              <button type="submit" class="sign-up-button">SCHRIJF ME IN</button>
-              <span class="loader"></span>
-
+      <form class="sign-up-form" action="/events/detail-event/{{ eventDetails.id }}" method="post" data-enhanced="{{ eventDetails.id }}">
+          <div class="input-bar-container">
+            <input type="text" name="title" class="input-bar input-field event-sign-bar" placeholder="" id="title" required>
+            <label class="label form-label" for="title">Functie</label>
           </div>
-      </form>
+
+          <div class="input-bar-container">
+            <input type="text" name="name" class="input-bar input-field event-sign-bar" placeholder="" id="name" required>
+            <label class="label form-label" for="name">Voornaam</label>
+          </div>
+
+          <div class="input-bar-container">
+            <input type="text" name="infix" class="input-bar input-field event-sign-bar" placeholder="" id="infix">
+            <label class="label form-label" for="infix">Tussenvoegsel</label>
+          </div>
+
+          <div class="input-bar-container">
+            <input type="text" name="lastname" class="input-bar input-field event-sign-bar" placeholder="" id="lastname" required>
+            <label class="label form-label" for="lastname">Achternaam</label>
+          </div>
+
+          <div class="input-bar-container">
+            <input type="email" name="email" class="input-bar input-field event-sign-bar" placeholder="" id="email" required>
+            <label class="label form-label" for="email">E-mailadres</label>
+          </div>
+
+          <div class="input-bar-container">
+            <input type="tel" name="phone" class="input-bar input-field event-sign-bar" placeholder="" id="phone" required>
+            <label class="label form-label" for="phone">Mobiel</label>
+          </div>
+
+          <div class="input-bar-container">
+            <input type="text" name="company" class="input-bar input-field event-sign-bar" placeholder="" id="company" required>
+            <label class="label form-label" for="company">Bedrijfsnaam</label>
+          </div>
+
+          <input type="hidden" name="event" class="input-field input-bar" value="{{ eventDetails.id }}">
+
+          <div class="input-bar-container">
+            <input type="url" name="company_website" class="input-bar input-field event-sign-bar" placeholder="" id="company_website" required>
+            <label class="label form-label" for="company_website">Bedrijfswebsite</label>
+          </div>
+
+          <div class="input-bar-container">
+            <input type="text" name="reason" class="input-bar input-field event-sign-bar" placeholder="" id="reason" required>
+            <label class="label form-label" for="reason">Ik wil graag lid worden omdat:</label>
+          </div>
+
+          <div class="input-bar-container">
+            <input type="number" name="fte" class="input-bar input-field event-sign-bar" placeholder="" id="fte" min="0" step="0.1" required>
+            <label class="label form-label" for="fte">FTE</label>
+          </div>
+
+          <div class="sign-up-button-container">
+            <button type="submit" class="sign-up-button">SCHRIJF ME IN</button>
+            <span class="loader"></span>
+          </div>
+  </form>
+
     </section>
   {% endif %}
 

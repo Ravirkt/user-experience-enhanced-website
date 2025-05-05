@@ -297,17 +297,29 @@ nav {
   align-items: center;
 } */
 
-.input-field {
-  appearance: none;
-  border: 0;
-  border-bottom: 1px solid var(--fonts-color-1);
-  padding-bottom: 1em;
-  outline: none;
-  background-color: var(--background-color);
+/* searchbar */
+.input-bar-container {
+  position: relative;
 }
 
-/* contentblok 5 */
+.label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
 
+/* als er een focus op de input is of als de placeholder niet meer zichtbaar is wordt op de .label de css uitgevoerd */
+.input-bar:focus + .label,
+.input-bar:not(:placeholder-shown) + .label {
+  transform: translateY(-25px);
+  transition: transform 0.3s ease;
+  color: black;
+}
+
+
+/* contentblok 5 */
 .event-parent-container {
   padding-left: 1.5em;
   padding-right: 1.5em;
