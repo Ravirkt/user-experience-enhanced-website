@@ -252,6 +252,32 @@ header {
 }
 
 .successtate {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: rgb(0, 0, 0);
+    background-color: lightgreen;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 9999;
+    animation: successtate 5s forwards;
+}
+
+@keyframes successtate {
+    0% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
 
 /* all companies */
 .participating-companies-container {
