@@ -76,6 +76,7 @@ header {
     text-align: center;
 
     box-sizing: border-box;
+
 }
 
 .details-section-image-container {
@@ -181,6 +182,7 @@ header {
 }
 
 .sign-up-form {
+    position: relative;
     grid-column: 1;
     grid-row: 2;
     display: flex;
@@ -193,8 +195,6 @@ header {
     justify-content: left;
     align-items: center;
     gap: 0.5em;
-
-
 }
 
 .sign-up-button {
@@ -277,8 +277,6 @@ header {
     }
 }
 
-
-
 /* all companies */
 .participating-companies-container {
     display: grid;
@@ -319,13 +317,6 @@ header {
     text-align: center;
 }
 
-
-
-
-
-
-
-
 /* event location image */
 
 .event-location-image-container {
@@ -342,7 +333,6 @@ header {
 }
 
 /* location information */
-
 .event-location-information-container {
     display: flex;
     flex-direction: column;
@@ -419,7 +409,6 @@ header {
     display: block;
 }
 
-
 .sign-up-button-container {
     display: flex;
     flex-direction: row;
@@ -429,5 +418,4 @@ header {
 .submitting {
     opacity: 0.3;
     transition: opacity 0.3s ease-in-out;
-  }
-  
+}
