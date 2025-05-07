@@ -15,12 +15,13 @@
 
     <figure class="details-section-image-container">
       {% if eventDetails.photo.id %}
-        <img class="details-section-image" src="https://fdnd-agency.directus.app/assets/{{ eventDetails.photo.id }}" 
+        <img class="details-section-image" style="view-transition-name: event-image-{{ eventDetails.id }}"
+        src="https://fdnd-agency.directus.app/assets/{{ eventDetails.photo.id }}" 
           alt="{{ eventDetails.title }}"
           width="{{ eventDetails.photo.width }}"
           height="{{ eventDetails.photo.height }}">
       {% else %}
-        <img class="details-section-image" src="/assets/Image.png" alt="stock afbeelding">
+        <img class="details-section-image" style="view-transition-name: event-image-{{ eventDetails.id }}" src="/assets/Image.png" alt="stock afbeelding">
       {% endif %}
 
         <figcaption class="image-subtitle">
