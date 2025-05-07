@@ -24,7 +24,6 @@
       {% else %}
         <img class="details-section-image" style="view-transition-name: event-image-{{ eventDetails.id }}" src="/assets/Image.png" alt="stock afbeelding">
       {% endif %}
-
         <figcaption class="image-subtitle">
           <span class="event-title">{{ eventDetails.title }} - </span> 
           <span class="event-date">{% if eventDetails.date %}
@@ -219,11 +218,30 @@
       // Overschrijf ons formulier met de nieuwe HTML
       // Hier wil je waarschijnlijk de Loading state vervangen door een Success state
       form.outerHTML = newState.outerHTML;
-  
+
+    //  https://www.w3schools.com/jsref/met_table_insertrow.asp  
+    //  https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableRowElement/insertCell
+
+      // voor company name in tabel zetten 
+      const companyName = form.querySelector('[name="company"]').value;
+      // console.log(companyName.value)
+      const table = document.querySelector('.participating-companies-table');
+      const lastRow = table.rows[table.rows.length - 1];
+
+      let row;
+      if (lastRow && lastRow.cells.length < 3) {
+        row = lastRow;
+      } else {
+        row = table.insertRow();
+      }
+
+      const cell = row.insertCell();
+      cell.textContent = companyName;
+
+      // voor loader en succes message post
       document.querySelector(".loader");
       loader.classList.remove("visible");
       
-
       const successMessage = document.getElementById('succes');
       if (successMessage) {
         successMessage.style.display = 'block';
@@ -296,7 +314,7 @@
 
             </button>
           </div>    
-        </section>
+</section>
 
 
   </main>
