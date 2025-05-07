@@ -268,7 +268,11 @@
         <!-- ============ contenblok-6 ============ -->
 
   <figure class="event-location-image-container">
-    <img class="event-location-image" src="/assets/Image.png" alt="Sample Event Title" height="360" width="360">
+    <picture>
+      <source type="image/avif" srcset="/assets/Image.avif">
+      <source type="image/webp" srcset="/assets/Image.webp">
+      <img class="event-location-image" src="/assets/Image.png" alt="" height="360" width="360">
+    </picture>  
   </figure>
     
     <!-- ============ contenblok-7 ============ -->
