@@ -227,11 +227,11 @@ header {
 }
 
 /* als er een focus op de input is of als de placeholder niet meer zichtbaar is wordt op de .label de css uitgevoerd */
-.input-bar:focus + .label,
-.input-bar:not(:placeholder-shown) + .label {
-  transform: translateY(-25px);
-  transition: transform 0.3s ease;
-  color: black;
+.input-bar:focus+.label,
+.input-bar:not(:placeholder-shown)+.label {
+    transform: translateY(-25px);
+    transition: transform 0.3s ease;
+    color: black;
 }
 
 .event-sign-bar {
