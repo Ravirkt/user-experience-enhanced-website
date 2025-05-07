@@ -4,6 +4,7 @@
   /* overflow-x: hidden; */
 }
 
+/* Navigation */
 nav {
   display: flex;
   justify-content: space-between;
@@ -22,7 +23,6 @@ nav {
   height: 4em;
 }
 
-
 .hamburger-menu-container {
   display: flex;
   flex-direction: column;
@@ -30,8 +30,6 @@ nav {
   border: 1.5px solid var(--fonts-color-1);
   padding: 0.9em;
 }
-
-
 
 .menu-stripe-1,
 .menu-stripe-2,
@@ -45,55 +43,60 @@ nav {
   display: none;
 }
 
-/* contentblok 2 */
-
-.header {
+/* Header section */
+header {
   padding-left: 1.5em;
   padding-right: 1.5em;
   padding-top: 3em;
   padding-bottom: 3em;
-  border-bottom: 2px solid var(--fonts-color-1);
 
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 1em;
+
   justify-content: center;
   align-items: center;
-  gap: 1.5em;
-}
 
-@supports (display: flex) {
-  .hero-section-button {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 0.3em;
+  border-bottom: 1px solid black;
 
-    cursor: pointer;
-
-    &:hover {
-      color: var(--button);
-    }
-  }
 }
 
 .hero-section-button {
+  grid-column: 1;
+  grid-row: 1;
+
+  align-self: center;
+  justify-self: center;
+
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: center;
-  padding-bottom: 0.3em;
+  align-items: center;
+  gap: 0.5em;
+}
 
-  cursor: pointer;
+.hero-section-title {
+  grid-column: 1;
+  grid-row: 2;
 
-  &:hover {
-    color: var(--button);
-  }
+  align-self: center;
+  justify-self: center;
 }
 
 .hero-section-paragraph {
-  width: 18.5em;
+  grid-column: 1;
+  grid-row: 3;
+
+
+  align-self: center;
+  justify-self: center;
   text-align: center;
+
+
+  @media (min-width: 900px) {
+    width: 40em;
+  }
 }
 
 /* contentblok 3 */
@@ -101,23 +104,21 @@ nav {
 .event-cards-parent-container {
   padding-left: 1.5em;
   padding-right: 1.5em;
-  padding-top: 2em;
-  padding-bottom: 2em;
-
-  border-bottom: 2px solid var(--fonts-color-1);
+  padding-top: 3em;
+  padding-bottom: 3em;
 
   display: grid;
-  grid-template-columns: 20em;
+  grid-template-columns: 1fr;
   grid-template-rows: auto;
-  column-gap: 1em;
-  justify-content: center;
-  align-items: center;
+  gap: 2em;
+
+  border-bottom: 1px solid black;
 
   @media (min-width: 800px) {
     grid-template-columns: 1fr 1fr;
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 1200px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
@@ -125,9 +126,7 @@ nav {
 .card-child-container {
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
-  padding-bottom: 2em;
-  /* border-bottom: 2px solid black; */
+  gap: 1em;
 
 }
 
@@ -136,24 +135,11 @@ nav {
   .card-image-container {
     display: flex;
     flex-direction: column;
-    gap: 1em;
-    height: 30em;
-    width: 20em;
-    justify-content: center;
-    align-self: center;
+    gap: 1.5em;
   }
 
 }
 
-.card-image-container {
-  display: flex;
-  flex-direction: column;
-  padding-top: 1em;
-  height: 30em;
-  width: 20em;
-  justify-content: center;
-  align-self: center;
-}
 
 .card-image {
   border: 2px solid var(--fonts-color-1);
@@ -206,32 +192,44 @@ nav {
   }
 }
 
-/* contentblok 4 */
-
-.form-container {
+/* contentblok 4 form */
+.filter-form-container {
   padding-left: 1.5em;
   padding-right: 1.5em;
-  padding-top: 2em;
-  padding-bottom: 2em;
+  padding-top: 3em;
+  padding-bottom: 3em;
 
-  border-bottom: 2px solid var(--fonts-color-1);
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
   gap: 1em;
+
+  border-bottom: 1px solid black;
+
+  @media (min-width: 650px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    align-items: center;
+  }
 }
 
-.select-parent-container {
+.select-form-container {
   display: flex;
+  flex-direction: row;
   gap: 1em;
-  justify-content: center;
+
+  @media (min-width: 650px) {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: last baseline;
+  }
 }
 
 
 
 
-
-
-
+/* selectbuttons */
 .select-container {
   position: relative;
   display: inline-block;
@@ -257,25 +255,23 @@ nav {
   border-left: none;
 }
 
-@supports (appearance: none) {
-  .select-container::after {
-    content: "+";
-    font-size: 1.5em;
-    font-weight: 50;
-    font-family: "Archivo", sans-serif;
-    color: var(--fonts-color-1);
+.select-container::after {
+  content: "+";
+  font-size: 1.5em;
+  font-weight: 50;
+  font-family: "Archivo", sans-serif;
+  color: var(--fonts-color-1);
 
-    position: absolute;
-    right: 15px;
-    top: 0;
-    bottom: 0;
-    height: 100%;
-    display: flex;
-    align-items: center;
+  position: absolute;
+  right: 15px;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
 
-    padding-left: 10px;
-    border-left: 2px solid var(--fonts-color-1);
-  }
+  padding-left: 10px;
+  border-left: 2px solid var(--fonts-color-1);
 }
 
 /* .custom-plus {
@@ -339,11 +335,11 @@ nav {
   border-bottom: 2px solid var(--fonts-color-1);
 }
 
-.event-card-child-container > * {
+.event-card-child-container>* {
   margin-bottom: 1em;
 }
 
-.event-card-child-container > * :last-child {
+.event-card-child-container>* :last-child {
   margin-bottom: 0;
 }
 
