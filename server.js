@@ -26,7 +26,7 @@ app.set('views', './views')
 
 app.get('/events', async function (request, response) {
 
-    const apiResponseHeaderEvents = await fetch('https://fdnd-agency.directus.app/items/dda_events?limit=3&fields=*,photo.id,photo.width,photo.height');
+    const apiResponseHeaderEvents = await fetch('https://fdnd-agency.directus.app/items/dda_events?filter[id][_in]=1,3,6&fields=*,photo.id,photo.width,photo.height');
     const apiResponseHeaderEventsJSON = await apiResponseHeaderEvents.json()
   
     // console.log(apiResponseJSON.data)
