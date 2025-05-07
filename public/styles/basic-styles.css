@@ -130,7 +130,7 @@ body {
 /* select button */
 select {
   font-family: "Archivo", sans-serif;
-  font-size: clamp(12px, 1vw, 14px);
+  font-size: clamp(10px, 1vw, 12px);
   line-height: clamp(20px, 1.5vw, 24px);
   letter-spacing: -0.04em;
   font-weight: 400;
@@ -138,22 +138,51 @@ select {
   outline: none;
 }
 
+.filter-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  background-color: var(--background-color);
+  border: 2px solid var(--fonts-color-1);
+  width: 8em;
+  height: 3em;
+
+  cursor: pointer;
+}
+
+  &:hover {
+      color: var(--button);
+  }
+
 .input-field {
   all: unset;
-  border: none;
+  border: 0;
   outline: none;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-
+  background-color: var(--background-color);
   border-bottom: 1px solid black;
   padding-bottom: 1em;
+  width: 18em;
+
 
   font-family: "Archivo", sans-serif;
   font-size: clamp(16px, 1.2vw, 18px);
   line-height: clamp(24px, 2vw, 32px);
   letter-spacing: 0;
   font-weight: 400;
+  color: var(--fonts-color-1);
+}
+
+.form-label {
+  font-family: "Archivo", sans-serif;
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: clamp(24px, 2vw, 32px);
+  letter-spacing: 0;
+  font-weight: 400;
+  color: #22222648;
 }
 
 li {
