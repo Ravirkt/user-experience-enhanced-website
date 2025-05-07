@@ -22,31 +22,27 @@
 
 <main>
   <article class="event-cards-parent-container">
-    {% for headerEvent in headerEvents %}
-      <section class="card-child-container">
-        <figure class="card-image-container">
-          {% if headerEvent.photo and headerEvent.photo.id %}
-            <img
-              class="card-image" loading="lazy" style="view-transition-name: event-image-{{ headerEvent.id }}"
-              src="https://fdnd-agency.directus.app/assets/{{ headerEvent.photo.id }}"
-              alt="{{ headerEvent.title }}"
-              width="{{ headerEvent.photo.width }}"
-              height="{{ headerEvent.photo.height }}">
-          {% else %}
-            <img
-              class="card-image" style="view-transition-name: event-image-{{ eventDetails.id }}"
-              src="/assets/Image.png"
-              alt="Afbeelding niet beschikbaar">
-          {% endif %}
-
-          <figcaption class="image-caption">
-            {% if headerEvent.title %}
-              {{ headerEvent.title | split: " " | slice: 0, 2 | join: " " | upcase }}
+      {% for headerEvent in headerEvents %}
+        <section class="card-child-container">
+          <figure class="card-image-container">
+            {% if headerEvent.photo and headerEvent.photo.id %}
+              <picture>
+                <source type="image/avif" srcset="https://fdnd-agency.directus.app/assets/{{ headerEvent.photo.id }}">
+                <source type="image/webp" srcset="https://fdnd-agency.directus.app/assets/{{ headerEvent.photo.id }}">
+                <img class="card-image" loading="lazy" style="view-transition-name: event-image-{{ headerEvent.id }}" src="https://fdnd-agency.directus.app/assets/{{ headerEvent.photo.id }}"
+                    alt="{{ headerEvent.title }}" width="{{ headerEvent.photo.width }}" height="{{ headerEvent.photo.height }}">
+              </picture>
             {% else %}
-              NADER BEPAALD
+              <img class="card-image" style="view-transition-name: event-image-{{ eventDetails.id }}" src="/assets/Image.png" alt="Afbeelding niet beschikbaar">
             {% endif %}
-          </figcaption>
-        </figure>
+            <figcaption class="image-caption">
+              {% if headerEvent.title %}
+              {{ headerEvent.title | split: " " | slice: 0, 2 | join: " " | upcase }}
+              {% else %}
+                NADER BEPAALD
+              {% endif %}
+            </figcaption>
+          </figure>
 
         {% assign event_date = headerEvent.date | default: '2024-01-01' %}
         <time class="event-time-stamp" datetime="{{ event_date | date: '%Y-%m-%d' }}">
