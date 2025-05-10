@@ -104,6 +104,13 @@ Voor het bepalen van de waardes van de statische images heb ik een online image 
 ### View transitions
 Om ervoor te zorgen dat de website snel is maar ook dat de website als snel wordt ervaren door de gebruiker heb ik een view transition toegevoegd door de view transitions API.
 
+Dit is een multi page transition. Doordat ik de `view-transition-name: event-image-{{id van event}}` op beide images heb gedaan krijg je standaard al een simpele overgangs transition. Maar met css heb ik het aangepast.
+
+`::view-transition-old` Dit is het eerste element waarop de transition uitgevoerd zal worden (pagina-1)
+`::view-transition-new` Dit is het tweede element waarop de transition uitgevoerd zal worden (pagina-2)
+
+https://github.com/Ravirkt/user-experience-enhanced-website/blob/a3b7c5089186f82cb4af6ef60c29c44d3e7eba22/public/styles/view-transition.css#L5-L11
+
 | View-transition                                             
 | -------------------------------------------------------- | 
 | <img src="./public/assets/view-transition.gif" width="600"> | 
