@@ -106,7 +106,7 @@ Om ervoor te zorgen dat de website snel is maar ook dat de website als snel word
 
 | View-transition                                             
 | -------------------------------------------------------- | 
-| <img src="./public/assets/view-transition.gif" width="1200"> | 
+| <img src="./public/assets/view-transition.gif" width="600"> | 
 
 ## Kenmerken
 Voor dit project heb ik gebruik gemaakt van veel moderne webtechnieken, waaronder:
