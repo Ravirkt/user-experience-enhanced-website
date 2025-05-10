@@ -19,6 +19,7 @@
     - [Width en height toevoegen](#width-en-height-toevoegen)
     - [View transitions](#view-transitions)
     - [Client side scripting](#client-side-scripting)
+  - [Resultaat lighthouse](#resultaat-lighthouse)
   - [Kenmerken](#kenmerken)
     - [Gebruikte technologieën](#gebruikte-technologieën)
   - [Installatie](#installatie)
@@ -127,6 +128,17 @@ Om ervoor te zorgen dat de pagina niet refreshed bij de POST en dat het ingeschr
 | Post en get zonder refresh                                             
 | -------------------------------------------------------- | 
 | <img src="./public/assets/post-zonder-refresh.gif" width="250" height="450px"> | 
+
+## Resultaat lighthouse
+Resultaten toegepaste performance technieken
+
+| Events                                            | Detailspagina                                             |
+| -------------------------------------------------------- | -------------------------------------------------- |
+| <img src="./public/assets/events-before.png" width="200"> | <img src="./public/assets/details-before.png" width="200"> |
+
+| Footer                                             | detailspagina                                         |
+| -------------------------------------------------- | ----------------------------------------------------- |
+| <img src="./public/assets/event-after.png" width="200"> | <img src="./public/assets/details-after.png" width="200"> |
 
 
 ## Kenmerken
