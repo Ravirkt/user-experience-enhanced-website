@@ -70,7 +70,8 @@ Elke image zit nu in een `<picture>` tag. In de picture tag heb ik een aantal so
 
 De images die uit de Directus API worden opgehaald zijn alle veel te groot. Als je ze zo groot inlaadt zonder dat je dat nodig hebt gaat je performance achteruit. Door bovenstaande kiest het zelf welke source gunstig is.
 
-
+<sub>Voorbeeld source in eventspagina</sub>
+https://github.com/Ravirkt/user-experience-enhanced-website/blob/16d79237d87cf04af28369aa1ee4466a94c9da38/views/events.liquid#L30C1-L31C1
 
 
 ## Kenmerken
