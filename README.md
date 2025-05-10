@@ -14,6 +14,7 @@
     - [Inschrijfformulier](#inschrijfformulier)
   - [Performance enhancement](#performance-enhancement)
     - [Responsive images](#responsive-images)
+    - [Webp en avif format](#webp-en-avif-format)
   - [Kenmerken](#kenmerken)
     - [Gebruikte technologieën](#gebruikte-technologieën)
   - [Installatie](#installatie)
@@ -70,8 +71,22 @@ Elke image zit nu in een `<picture>` tag. In de picture tag heb ik een aantal so
 
 De images die uit de Directus API worden opgehaald zijn alle veel te groot. Als je ze zo groot inlaadt zonder dat je dat nodig hebt gaat je performance achteruit. Door bovenstaande kiest het zelf welke source gunstig is.
 
-<sub>Voorbeeld source in eventspagina</sub>
-https://github.com/Ravirkt/user-experience-enhanced-website/blob/16d79237d87cf04af28369aa1ee4466a94c9da38/views/events.liquid#L30C1-L31C1
+<sub>Voorbeeld source in eventspagina</sub><br>
+`<source media="(max-width: 360px)" type="image/avif" srcset="https://fdnd-agency.directus.app/assets/{{ headerEvent.photo.id }}?format=avif&width=360">`
+
+### Webp en avif format
+Webp en avif is moderne formatting voor images. De bestandsgrootte is kleiner ten opzichte van jpeg of png wat betere performance biedt.
+
+De images uit de Directus API kun je ophalen als format avif of webp. Dit heb ik ook gedaan. Ik heb ook statische images in mijn assets folder. Ik heb in de assets folder ook de webp en de avif format van deze images toegevoegd. En als fallback heb ik de normale format png.
+
+<sub>Voorbeeld statische image in footer</sub><br>
+`
+<picture>
+    <source type="image/avif" srcset="/assets/image5.avif">
+    <source type="image/webp" srcset="/assets/image5.webp">
+    <img class="partner-logo" src="/assets/image5.png" loading="lazy" alt="" height="72" width="73">
+</picture>
+`
 
 
 ## Kenmerken
