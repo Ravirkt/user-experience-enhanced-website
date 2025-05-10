@@ -16,8 +16,15 @@
     <figure class="details-section-image-container">
       {% if eventDetails.photo.id %}
         <picture>
-          <source type="image/avif" srcset="https://fdnd-agency.directus.app/assets/{{ eventDetails.photo.id }}">
-          <source type="image/webp" srcset="https://fdnd-agency.directus.app/assets/{{ eventDetails.photo.id }}">
+          <source media="(max-width: 480px)" type="image/avif" srcset="https://fdnd-agency.directus.app/assets/{{ eventDetails.photo.id }}?format=avif&width=480">
+          <source media="(max-width: 480px)" type="image/webp" srcset="https://fdnd-agency.directus.app/assets/{{ eventDetails.photo.id }}?format=webp&width=480">
+
+          <source media="(max-width: 768px)" type="image/avif" srcset="https://fdnd-agency.directus.app/assets/{{ eventDetails.photo.id }}?format=avif&width=768">
+          <source media="(max-width: 768px)" type="image/webp" srcset="https://fdnd-agency.directus.app/assets/{{ eventDetails.photo.id }}?format=webp&width=768">
+
+          <source media="(max-width: 1200px)" type="image/avif" srcset="https://fdnd-agency.directus.app/assets/{{ eventDetails.photo.id }}?format=avif&width=1100">
+          <source media="(max-width: 1200px)" type="image/webp" srcset="https://fdnd-agency.directus.app/assets/{{ eventDetails.photo.id }}?format=webp&width=1100">
+
           <img class="details-section-image" style="view-transition-name: event-image-{{ eventDetails.id }}" src="https://fdnd-agency.directus.app/assets/{{ eventDetails.photo.id }}" alt="{{ eventDetails.title }}"
             width="{{ eventDetails.photo.width }}" height="{{ eventDetails.photo.height }}">
         </picture>
@@ -291,7 +298,7 @@
     <picture>
       <source type="image/avif" srcset="/assets/Image.avif">
       <source type="image/webp" srcset="/assets/Image.webp">
-      <img class="event-location-image" src="/assets/Image.png" alt="" height="360" width="360">
+      <img class="event-location-image" loading="lazy" src="/assets/Image.png" alt="" height="360" width="360">
     </picture>  
   </figure>
     
