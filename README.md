@@ -132,11 +132,11 @@ Om ervoor te zorgen dat de pagina niet refreshed bij de POST en dat het ingeschr
 ## Resultaat lighthouse
 Resultaten toegepaste performance technieken
 
-| Events                                            | Detailspagina                                             |
+| Eventspagina-before                                           |Detailspagina-before                                           |
 | -------------------------------------------------------- | -------------------------------------------------- |
 | <img src="./public/assets/events-before.png" width="200"> | <img src="./public/assets/details-before.png" width="200"> |
 
-| Footer                                             | detailspagina                                         |
+| Eventspagina-after                                             | detailspagina-after                                         |
 | -------------------------------------------------- | ----------------------------------------------------- |
 | <img src="./public/assets/event-after.png" width="200"> | <img src="./public/assets/details-after.png" width="200"> |
 
