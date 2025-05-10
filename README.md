@@ -126,7 +126,7 @@ Om ervoor te zorgen dat de pagina niet refreshed bij de POST en dat het ingeschr
 
 | Post en get zonder refresh                                             
 | -------------------------------------------------------- | 
-| <img src="./public/assets/post-zonder-refresh.gif" width="600"> | 
+| <img src="./public/assets/post-zonder-refresh.gif" width="250" height="450px"> | 
 
 
 ## Kenmerken
