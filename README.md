@@ -18,6 +18,7 @@
     - [Lazy loading](#lazy-loading)
     - [Width en height toevoegen](#width-en-height-toevoegen)
     - [View transitions](#view-transitions)
+    - [Client side scripting](#client-side-scripting)
   - [Kenmerken](#kenmerken)
     - [Gebruikte technologieën](#gebruikte-technologieën)
   - [Installatie](#installatie)
@@ -106,14 +107,27 @@ Om ervoor te zorgen dat de website snel is maar ook dat de website als snel word
 
 Dit is een multi page transition. Doordat ik de `view-transition-name: event-image-{{id van event}}` op beide images heb gedaan krijg je standaard al een simpele overgangs transition. Maar met css heb ik het aangepast.
 
+`view-transition-name: event-image-{{id van event}}` Dit moet bij beide pagina's hetzelfde zijn. Op de eventpage heet de id Headerevent en op de detailspagina heet het eventDetails.
+
+In de css code snippet hieronder gebruik ik `event-image-*`. Het sterretje betekend dat het alles pakt wat na `event-image-` komt. De `style="view-transition-name: event-image-{{ eventDetails.id }}` en `style="view-transition-name: event-image-{{ headerEvent.id }}"` hebben een andere variabele naam voor de id, maar hebben dezelfde id.
+
 `::view-transition-old` Dit is het eerste element waarop de transition uitgevoerd zal worden (pagina-1)
 `::view-transition-new` Dit is het tweede element waarop de transition uitgevoerd zal worden (pagina-2)
 
 https://github.com/Ravirkt/user-experience-enhanced-website/blob/a3b7c5089186f82cb4af6ef60c29c44d3e7eba22/public/styles/view-transition.css#L5-L11
 
+
 | View-transition                                             
 | -------------------------------------------------------- | 
 | <img src="./public/assets/view-transition.gif" width="600"> | 
+
+### Client side scripting
+Om ervoor te zorgen dat de pagina niet refreshed bij de POST en dat het ingeschreven bedrijf gelijk zichtbaar is zonder refresh is er gebruik gemaakt van client side scripting.
+
+| Post en get zonder refresh                                             
+| -------------------------------------------------------- | 
+| <img src="./public/assets/post-zonder-refresh.gif" width="600"> | 
+
 
 ## Kenmerken
 Voor dit project heb ik gebruik gemaakt van veel moderne webtechnieken, waaronder:
@@ -159,8 +173,3 @@ Project lokaal installeren
 
 This project is licensed under the terms of the [MIT license](./LICENSE).
 
-
-
-| hero-section                                             | Filter                                             |
-| -------------------------------------------------------- | -------------------------------------------------- |
-| <img src="./public/assets/hero-section.gif" width="200"> | <img src="./public/assets/filter.png" width="200"> |

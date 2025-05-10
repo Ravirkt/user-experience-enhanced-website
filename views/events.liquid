@@ -41,7 +41,7 @@
                     alt="{{ headerEvent.title }}" width="{{ headerEvent.photo.width }}" height="{{ headerEvent.photo.height }}">
               </picture>
             {% else %}
-              <img class="card-image" style="view-transition-name: event-image-{{ eventDetails.id }}" src="/assets/Image.png" alt="Afbeelding niet beschikbaar">
+              <img class="card-image" style="view-transition-name: event-image-{{ headerEvent.id }}" src="/assets/Image.png" alt="Afbeelding niet beschikbaar">
             {% endif %}
             <figcaption class="image-caption">
               {% if headerEvent.title %}
