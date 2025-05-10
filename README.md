@@ -15,6 +15,9 @@
   - [Performance enhancement](#performance-enhancement)
     - [Responsive images](#responsive-images)
     - [Webp en avif format](#webp-en-avif-format)
+    - [Lazy loading](#lazy-loading)
+    - [Width en height toevoegen](#width-en-height-toevoegen)
+    - [View transitions](#view-transitions)
   - [Kenmerken](#kenmerken)
     - [Gebruikte technologieën](#gebruikte-technologieën)
   - [Installatie](#installatie)
@@ -88,6 +91,22 @@ De images uit de Directus API kun je ophalen als format avif of webp. Dit heb ik
 </picture>
 `
 
+### Lazy loading
+Ik heb op de verschillende pagina's een aantal ongeveer 10 images. Om performance te verbeteren heb ik bij bepaalde images lazy loading toegevoegd door de html `<loading>`. Hierdoor worden de images pas ingeladen als ze op het scherm komen. Ik heb lazy loading uitgevoerd op alle images buiten de hero-section. Omdat je deze images gelijk ziet op de pagina.
+
+### Width en height toevoegen
+Om layout shifts te voorkomen heb ik een width en height toegevoegt aan elke image. Bij het renderen van de pagina weet de browser wat de height en width van de image is waardoor deze ruimte gereserveerd kan worden. Hierdoor zal de gebruiker geen verschuivingen zien waardoor de user experience verbetert.
+
+Bij de images uit de Directus API moeten deze waardes met de fetch worden meegevraagt. Dit wordt gedaan door `photo.id,photo.width,photo.height` toe te voegen aan de fetch.
+
+Voor het bepalen van de waardes van de statische images heb ik een online image inspector gebruikt.
+
+### View transitions
+Om ervoor te zorgen dat de website snel is maar ook dat de website als snel wordt ervaren door de gebruiker heb ik een view transition toegevoegd door de view transitions API.
+
+| View-transition                                             
+| -------------------------------------------------------- | 
+| <img src="./public/assets/view-transition.gif" width="1200"> | 
 
 ## Kenmerken
 Voor dit project heb ik gebruik gemaakt van veel moderne webtechnieken, waaronder:
