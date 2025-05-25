@@ -4,6 +4,11 @@
 
   <!-- ============ contenblok-1 ============ -->
 
+{% comment %} werking responsive images
+ In de figure tag heb ik de picture tag met een aantal source tags met daarin verschillende image formaten. Dit zijn alle dezelfde images.
+ De browser gaat nu een voor een alle sources af en kijkt naar de media query en de format van de image. als beide voorwaarden kloppen dan kiest het die source uit. 
+ Zo niet dan gaat het door naar de volgende met als laatste optie de image met jpg of png format in volledige grootte.
+{% endcomment %}
 
   {% if eventDetails %}
   <header>
